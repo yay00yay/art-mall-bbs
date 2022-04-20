@@ -28,7 +28,6 @@
 
 <script>
 export default {
-  layout: 'mall_bbs_meta',
   async asyncData({ $axios, store }) {
     store.commit('env/setCurrentNodeId', 0) // 设置当前所在node
     try {

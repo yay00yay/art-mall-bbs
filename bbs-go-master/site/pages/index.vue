@@ -28,6 +28,7 @@
 
 <script>
 export default {
+  layout: 'mall_bbs_meta',
   async asyncData({ $axios, store }) {
     store.commit('env/setCurrentNodeId', 0) // 设置当前所在node
     try {
@@ -55,6 +56,11 @@ export default {
         { hid: 'keywords', name: 'keywords', content: this.$siteKeywords() },
       ],
     }
+  },
+  computed: {
+    config() {
+      return this.$store.state.config.config
+    },
   },
 }
 </script>

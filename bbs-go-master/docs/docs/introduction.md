@@ -1,11 +1,12 @@
 ## 概要
-bbs-go 是一款基于Go语言研发的`开源`、`前后端分离`、`精美小巧`、`跨平台`的社区系统。初期该项目仅用过学习和交流，开源之后越来越多的小伙伴儿开始喜欢和关注他，这也是我长期升级和维护的动力。
 
-bbs-go 为前后端分离设计，后端接口服务使用简洁的Go语言进行开发，前端页面使用Vue.js进行开发。本系统模块如下：
+bbs-go 是一款基于 Go 语言研发的`开源`、`前后端分离`、`精美小巧`、`跨平台`的首页系统。初期该项目仅用过学习和交流，开源之后越来越多的小伙伴儿开始喜欢和关注他，这也是我长期升级和维护的动力。
 
-- server：go语言开发后端接口服务，为系统提供数据支撑
-- site：基于Nuxt.js开发的社区前台UI服务
-- admin：基于Vue.js、element-ui开发的运营后台
+bbs-go 为前后端分离设计，后端接口服务使用简洁的 Go 语言进行开发，前端页面使用 Vue.js 进行开发。本系统模块如下：
+
+- server：go 语言开发后端接口服务，为系统提供数据支撑
+- site：基于 Nuxt.js 开发的首页前台 UI 服务
+- admin：基于 Vue.js、element-ui 开发的运营后台
 
 ## 功能
 
@@ -19,12 +20,12 @@ bbs-go 为前后端分离设计，后端接口服务使用简洁的Go语言进�
 
 ## 技术栈
 
-- iris ([https://github.com/kataras/iris](https://github.com/kataras/iris)) Go语言 mvc 框架
-- gorm ([http://gorm.io/](http://gorm.io/)) 最好用的Go语言数据库orm框架
+- iris ([https://github.com/kataras/iris](https://github.com/kataras/iris)) Go 语言 mvc 框架
+- gorm ([http://gorm.io/](http://gorm.io/)) 最好用的 Go 语言数据库 orm 框架
 - Vue.js （[https://vuejs.org](https://vuejs.org)）渐进式 JavaScript 框架
-- nuxt.js ([https://nuxtjs.org](https://nuxtjs.org)) 基于Vue的服务端渲染框架，效率高到爆
+- nuxt.js ([https://nuxtjs.org](https://nuxtjs.org)) 基于 Vue 的服务端渲染框架，效率高到爆
 - element-UI ([https://element.eleme.cn](https://element.eleme.cn)) 饿了么开源的基于 vue.js 的前端库
-- resty ([https://github.com/go-resty/resty](https://github.com/go-resty/resty)) Go语言好用的 http-client
+- resty ([https://github.com/go-resty/resty](https://github.com/go-resty/resty)) Go 语言好用的 http-client
 - cron ([https://github.com/robfig/cron](https://github.com/robfig/cron)) 定时任务框架
 - goquery ([https://github.com/PuerkitoBio/goquery](https://github.com/PuerkitoBio/goquery)) html dom 元素解析
 

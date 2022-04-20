@@ -2,3 +2,5 @@
 dist
 *.log
 .DS_Store
+admin/dist.zip
+admin/simple_express_server/

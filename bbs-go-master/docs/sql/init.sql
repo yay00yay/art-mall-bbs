@@ -248,4 +248,24 @@ WHERE NOT EXISTS(
     SELECT *
     FROM `t_sys_config`
     WHERE `key` = 'scoreConfig'
-  );
+   );
+-- INSERT INTO t_sys_config (
+--     `key`,
+--     `value`,
+--     `name`,
+--     `description`,
+--     `create_time`,
+--     `update_time`
+--   )
+-- SELECT 'siteNotification',
+--   'Test Site Notification',
+--   '站点通知',
+--   '站点通知',
+--   (UNIX_TIMESTAMP(now()) * 1000),
+--   (UNIX_TIMESTAMP(now()) * 1000)
+-- FROM DUAL
+-- WHERE NOT EXISTS(
+--     SELECT *
+--     FROM `t_sys_config`
+--     WHERE `key` = 'siteNotification'
+--   );

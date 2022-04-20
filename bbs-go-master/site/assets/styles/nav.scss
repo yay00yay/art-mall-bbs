@@ -19,7 +19,7 @@ $sidebarZIndex: 50;
   display: flex;
   justify-content: space-between;
 
-  &>div {
+  & > div {
     display: flex;
     align-items: center;
   }
@@ -35,7 +35,7 @@ $sidebarZIndex: 50;
 
       i {
         font-size: 24px;
-        color: var(--text-color4)
+        color: var(--text-color4);
       }
     }
   }

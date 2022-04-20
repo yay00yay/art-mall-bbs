@@ -2,27 +2,27 @@
 
 本系统为前后端分离设计，共分为三个模块：
 
-- server：go语言开发后端接口服务，为系统提供数据支撑
-- site：基于Nuxt.js开发的社区前台UI服务
-- admin：基于Vue.js、element-ui开发的运营后台
+- server：go 语言开发后端接口服务，为系统提供数据支撑
+- site：基于 Nuxt.js 开发的首页前台 UI 服务
+- admin：基于 Vue.js、element-ui 开发的运营后台
 
 在安装时需要分别安装以上三个模块，接下来我们分别详细介绍下三个模块的安装方法。
 
 ## server 端
 
-### Go语言环境安装
+### Go 语言环境安装
 
-首先确保你已经成功在本地安装好了go语言开发环境，如果环境不会安装的，请参照下面文章：
+首先确保你已经成功在本地安装好了 go 语言开发环境，如果环境不会安装的，请参照下面文章：
 
-- [Go简易教程](https://mlog.club/topic/231)
+- [Go 简易教程](https://mlog.club/topic/231)
 - [go mod 使用帮助](https://mlog.club/topic/617)
-- [Go语言配置go mod代理](https://mlog.club/topic/618)
+- [Go 语言配置 go mod 代理](https://mlog.club/topic/618)
 
 ### 数据库初始化
 
-bbs-go数据库使用的是MySQL，MySQL最低版本要求为5.7（或者MariaDB 10及以上版本）。数据库的安装这里就不做赘述了，如果不会可自行Google、百度。
+bbs-go 数据库使用的是 MySQL，MySQL 最低版本要求为 5.7（或者 MariaDB 10 及以上版本）。数据库的安装这里就不做赘述了，如果不会可自行 Google、百度。
 
-数据库成功安装之后，请通过工具（工具自行选择，我喜欢用mysql-cli，也可以用Navicat、TablePlus、MySQLWorkbench...）连接数据库，然后使用以下Sql脚本初始化`bbs-go`必须需的数据库表：
+数据库成功安装之后，请通过工具（工具自行选择，我喜欢用 mysql-cli，也可以用 Navicat、TablePlus、MySQLWorkbench...）连接数据库，然后使用以下 Sql 脚本初始化`bbs-go`必须需的数据库表：
 
 <div style="background-color: #F7EABC; padding: 20px;">
  <div><strong>⚠️注意⚠️</strong></div>
@@ -136,7 +136,7 @@ WHERE NOT EXISTS(SELECT * FROM `t_sys_config` WHERE `key` = 'siteTitle');
 
 INSERT INTO t_sys_config (`key`, `value`, `name`, `description`, `create_time`, `update_time`)
 SELECT 'siteDescription',
-       'bbs-go，基于Go语言的开源社区系统',
+       'bbs-go，基于Go语言的开源首页系统',
        '站点描述',
        '站点描述',
        (UNIX_TIMESTAMP(now()) * 1000),
@@ -197,9 +197,9 @@ WHERE NOT EXISTS(SELECT * FROM `t_sys_config` WHERE `key` = 'scoreConfig');
 
 ### 编译
 
-Go语言是支持交叉编译的，你可以在Windows系统中将他编译成可以在Linux系统上可执行的二进制文件，其他平台同理。
+Go 语言是支持交叉编译的，你可以在 Windows 系统中将他编译成可以在 Linux 系统上可执行的二进制文件，其他平台同理。
 
-编译时请打开命令行，并cd进入`bbs-go/server`目录，然后按照下面步骤进行编译。
+编译时请打开命令行，并 cd 进入`bbs-go/server`目录，然后按照下面步骤进行编译。
 
 - 如果只想编译当前机器可执行文件，那么只需要执行以下命令即可:
 
@@ -207,7 +207,7 @@ Go语言是支持交叉编译的，你可以在Windows系统中将他编译成�
 go build
 ```
 
-- 如果想编译其他类型系统可执行二进制文件（例如在Windows系统中编译Linux系统上的可执行文件），可以执行以下命令：
+- 如果想编译其他类型系统可执行二进制文件（例如在 Windows 系统中编译 Linux 系统上的可执行文件），可以执行以下命令：
 
 ```bash
 # 1. 设置系统类型
@@ -218,19 +218,19 @@ SET GOARCH=amd64
 go build
 ```
 
-注意在其他类Unix系统（如Linux、MacOS）中设置系统类型和CPU架构的方式和在Windows系统中不太一样，在类Unix系统中实现上面同样效果，命令如下：
+注意在其他类 Unix 系统（如 Linux、MacOS）中设置系统类型和 CPU 架构的方式和在 Windows 系统中不太一样，在类 Unix 系统中实现上面同样效果，命令如下：
 
 ```bash
 GOOS=linux GOARCH=amd64 go build
 ```
 
-编译后会在`bbs-go/server`目录下生成一个`bbs-go`文件（Windows下是`bbs-go.exe`），这个就是我们编译后的可执行文件。
+编译后会在`bbs-go/server`目录下生成一个`bbs-go`文件（Windows 下是`bbs-go.exe`），这个就是我们编译后的可执行文件。
 
 ### 配置
 
 系统提供了配置示例，首先将配置示例文件`bbs-go/server/bbs-go.example.yaml`复制一份，重命名为：`bbs-go/server/bbs-go.yaml`。 示例文件中对于每个配置项都做了详细注释说明，请按照注释配置即可。
 
-这里着重讲解一下数据库的配置，数据库为必要配置，成功配置数据库之后即可正常启动bbs-go server端。在上面步骤中我们已经将bbs-go的数据库初始化完成，数据库配置有以下几点：
+这里着重讲解一下数据库的配置，数据库为必要配置，成功配置数据库之后即可正常启动 bbs-go server 端。在上面步骤中我们已经将 bbs-go 的数据库初始化完成，数据库配置有以下几点：
 
 1. 数据库用户名，这里假设为：root（这里只是假设，请根据自己的实际情况设置）
 2. 数据库密码，这里假设为：123456（这里只是假设，请根据自己的实际情况设置）
@@ -245,9 +245,9 @@ MySqlUrl: root:123456@tcp(localhost:3306)/bbsgo_db?charset=utf8mb4&parseTime=Tru
 
 ### 运行
 
-bbs-go的运行只需要两个文件，也就是我们上面步骤涉及到的两个文件：
+bbs-go 的运行只需要两个文件，也就是我们上面步骤涉及到的两个文件：
 
-1. 编译好的可执行文件：`bbs-go`（Windows下是`bbs-go.exe`）
+1. 编译好的可执行文件：`bbs-go`（Windows 下是`bbs-go.exe`）
 2. 配置文件：`bbs-go.yaml`
 
 将这两个文件放到同一个目录下，然后使用使用命令行进入到该目录中，在该目录下执行命令：
@@ -263,27 +263,27 @@ Now listening on: http://localhost:8082
 Application started. Press CMD+C to shut down.
 ```
 
-bbs-go-server默认的端口是：8082（你也可以在bbs-go.yaml配置文件中自行修改），在浏览器中访问：`http://localhost:8082` 就可以看到效果了，浏览器会显示：Powered by bbs-go 。
+bbs-go-server 默认的端口是：8082（你也可以在 bbs-go.yaml 配置文件中自行修改），在浏览器中访问：`http://localhost:8082` 就可以看到效果了，浏览器会显示：Powered by bbs-go 。
 
 ## site 端
 
-### nodejs环境安装
+### nodejs 环境安装
 
-site 模块是基于nodejs开发的，所以编译他首先要安装nodejs环境。
+site 模块是基于 nodejs 开发的，所以编译他首先要安装 nodejs 环境。
 
-- Windows下安装请参照这篇文章：https://www.cnblogs.com/liuqiyun/p/8133904.html
-- Linux/MacOS下安装可以使用nvm：https://github.com/nvm-sh/nvm
+- Windows 下安装请参照这篇文章：https://www.cnblogs.com/liuqiyun/p/8133904.html
+- Linux/MacOS 下安装可以使用 nvm：https://github.com/nvm-sh/nvm
 - 或参照官网提供的《通过包管理器方式安装 Node.js》教程：https://nodejs.org/zh-cn/download/package-manager/
 
 ### 安装依赖
 
-在环境安装好后，进入到`bbs-go/site`目录，然后执行以下命令安装bbs-go-admin模块所需依赖：
+在环境安装好后，进入到`bbs-go/site`目录，然后执行以下命令安装 bbs-go-admin 模块所需依赖：
 
 ```bash
 npm install
 ```
 
-npm的软件源是在国外服务器的，安装起来可能比较慢，你也可以使用`cnpm`来安装依赖。首先要安装`cnpm`，安装命令如下：
+npm 的软件源是在国外服务器的，安装起来可能比较慢，你也可以使用`cnpm`来安装依赖。首先要安装`cnpm`，安装命令如下：
 
 ```bash
 npm install cnpm -g --registry=https://r.npm.taobao.org
@@ -297,7 +297,7 @@ cnpm install
 
 ### 配置
 
-site模块的配置很简单，只需要配置：server端服务地址即可。这里的server端就是指bbs-go-server运行的地址，也就是上面讲到的：http://localhost:8082（这里要根据你的具体情况而定）。配置方式是，打开`bbs-go/site/nuxt.config.js`，找到`proxy`配置项，将他修改为下面的配置即可：
+site 模块的配置很简单，只需要配置：server 端服务地址即可。这里的 server 端就是指 bbs-go-server 运行的地址，也就是上面讲到的：http://localhost:8082（这里要根据你的具体情况而定）。配置方式是，打开`bbs-go/site/nuxt.config.js`，找到`proxy`配置项，将他修改为下面的配置即可：
 
 ```js
 proxy: {
@@ -307,28 +307,28 @@ proxy: {
 
 ### 运行
 
-完成上面步骤之后，可以通过命令：`npm run dev` 以开发模式启动bbs-go-site。bbs-go-site服务默认端口为`3000`，启动成功后你就可以在浏览器通过：http://localhost:3000 访问和体验整个`bbs-go`的功能啦。
+完成上面步骤之后，可以通过命令：`npm run dev` 以开发模式启动 bbs-go-site。bbs-go-site 服务默认端口为`3000`，启动成功后你就可以在浏览器通过：http://localhost:3000 访问和体验整个`bbs-go`的功能啦。
 
 当然我们线上部署是不能使用：`npm run dev`方式执行的，向上部署方式如下：
 
-1. 使用`npm run build`编译site模块，编译成功后会在目录中生成`.nuxt`目录。
+1. 使用`npm run build`编译 site 模块，编译成功后会在目录中生成`.nuxt`目录。
 2. 使用`npm run start`启动服务，服务同样启动在：3000 端口。
 
 ## admin 端
 
-### nodejs环境安装
+### nodejs 环境安装
 
-> admin端和site端都是基于nodejs进行开发的，nodejs环境安装参见site端相关文档描述。
+> admin 端和 site 端都是基于 nodejs 进行开发的，nodejs 环境安装参见 site 端相关文档描述。
 
 ### 安装依赖
 
-在环境安装好后，进入到`bbs-go/admin`目录，然后执行以下命令安装bbs-go-admin模块所需依赖：
+在环境安装好后，进入到`bbs-go/admin`目录，然后执行以下命令安装 bbs-go-admin 模块所需依赖：
 
 ```bash
 npm install
 ```
 
-npm的软件源是在国外服务器的，安装起来可能比较慢，你也可以使用`cnpm`来安装依赖。首先要安装`cnpm`，安装命令如下：
+npm 的软件源是在国外服务器的，安装起来可能比较慢，你也可以使用`cnpm`来安装依赖。首先要安装`cnpm`，安装命令如下：
 
 ```bash
 npm install cnpm -g --registry=https://r.npm.taobao.org
@@ -365,17 +365,21 @@ VUE_APP_BASE_URL = 'http://localhost:3000'
 ### 运行
 
 确保依赖安装成功、配置正确后，可以使用命令：
+
 ```bash
 npm run serve
 ```
-来启动admin服务，使用该命令启动服务，会使用配置：`/admin/.env.development`
+
+来启动 admin 服务，使用该命令启动服务，会使用配置：`/admin/.env.development`
 
 ### 打包
 
 确保依赖安装成功、配置正确后，可以使用命令：
+
 ```bash
 npm run build
 ```
+
 来打包`bbs-go-admin`模块，打包时会使用配置：`/admin/.env.production`
 
-打包的成果为：`/admin/dist/`文件夹，将该文件夹部署到nginx或者其他web容器中即可正常访问。
+打包的成果为：`/admin/dist/`文件夹，将该文件夹部署到 nginx 或者其他 web 容器中即可正常访问。

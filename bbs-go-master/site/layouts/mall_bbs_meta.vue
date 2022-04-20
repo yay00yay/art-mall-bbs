@@ -1,10 +1,8 @@
 <template>
   <div>
     <my-top-nav />
-
     <nuxt />
-
-    <my-footer />
+    <my-bottom-nav />
   </div>
 </template>
 

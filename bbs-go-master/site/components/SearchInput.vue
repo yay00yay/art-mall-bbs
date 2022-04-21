@@ -171,7 +171,7 @@ export default {
 
 <style lang="scss" scoped>
 .searchFormDiv {
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 768px) and (min-width: 500px) {
     & {
       display: none;
     }

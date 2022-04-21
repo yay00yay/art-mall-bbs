@@ -1,9 +1,7 @@
 <template>
-  <div class="container">
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <search-input />
-      </div>
+  <div class="navbar">
+    <div class="navbar-item">
+      <search-input />
     </div>
     <!-- T:04200953 -->
     <div v-if="activeDomain === 'mall'" class="navbar-submenu">
@@ -109,27 +107,9 @@ export default {
   }
 
   .navbar-submenu {
-    position: absolute;
-    top: 70px;
     display: flex;
-  }
-
-  .navbar-sub-item {
-    margin: auto 1rem;
-  }
-
-  .nav-domain {
-    margin: auto;
-  }
-
-  .nav-domain ul {
-    display: flex;
-  }
-}
-
-.user-menus {
-  .user-menus-nickname {
-    margin-left: 5px;
+    padding: 0.5rem 0.75rem;
+    justify-content: space-evenly;
   }
 }
 </style>

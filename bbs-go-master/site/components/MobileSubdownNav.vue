@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="navbar">
     <!-- T:04200953 -->
     <div class="nav-domain">
       <ul>
@@ -93,34 +93,6 @@ export default {
     font-weight: 700;
   }
 
-  .publish {
-    color: var(--text-color);
-    background-color: #3174dc;
-    width: 100px;
-    &:hover {
-      color: var(--text-color);
-      background-color: #4d91fa;
-    }
-  }
-
-  .login-btn {
-    border-color: #000; // TODO
-    &:hover {
-      color: var(--text-color3);
-      border-color: var(--text-color3);
-    }
-  }
-  // T:04200953
-  .navbar-start {
-    margin: auto;
-  }
-
-  .navbar-submenu {
-    position: absolute;
-    top: 70px;
-    display: flex;
-  }
-
   .navbar-sub-item {
     margin: auto 1rem;
   }
@@ -131,12 +103,7 @@ export default {
 
   .nav-domain ul {
     display: flex;
-  }
-}
-
-.user-menus {
-  .user-menus-nickname {
-    margin-left: 5px;
+    justify-content: space-evenly;
   }
 }
 </style>

@@ -97,24 +97,24 @@
           </div>
         </div>
       </div>
-      <!-- T:04200953 -->
-      <div v-if="activeDomain === 'mall'" class="navbar-submenu">
-        <div class="navbar-sub-item"><span>首页</span></div>
-        <div class="navbar-sub-item"><span>最新</span></div>
-      </div>
-      <div v-if="activeDomain === 'community'" class="navbar-submenu">
-        <nuxt-link
-          v-for="(nav, index) in config.siteNavs"
-          :key="index"
-          :to="nav.url"
-          class="navbar-sub-item"
-          >{{ nav.title }}</nuxt-link
-        >
-      </div>
-      <div v-if="activeDomain === 'meta'" class="navbar-submenu">
-        <div class="navbar-sub-item"><span>数字艺术</span></div>
-        <div class="navbar-sub-item"><span>数创空间</span></div>
-      </div>
+    </div>
+    <!-- T:04200953 -->
+    <div v-if="activeDomain === 'mall'" class="container">
+      <div class="navbar-sub-item"><span>首页</span></div>
+      <div class="navbar-sub-item"><span>最新</span></div>
+    </div>
+    <div v-if="activeDomain === 'community'" class="container">
+      <nuxt-link
+        v-for="(nav, index) in config.siteNavs"
+        :key="index"
+        :to="nav.url"
+        class="navbar-sub-item"
+        >{{ nav.title }}</nuxt-link
+      >
+    </div>
+    <div v-if="activeDomain === 'meta'" class="container">
+      <div class="navbar-sub-item"><span>数字艺术</span></div>
+      <div class="navbar-sub-item"><span>数创空间</span></div>
     </div>
   </nav>
 </template>
@@ -199,12 +199,6 @@ export default {
   // T:04200953
   .navbar-start {
     margin: auto;
-  }
-
-  .navbar-submenu {
-    position: absolute;
-    top: 70px;
-    display: flex;
   }
 
   .navbar-sub-item {

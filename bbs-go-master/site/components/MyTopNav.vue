@@ -36,7 +36,7 @@ body {
   }
 
   @media screen and (max-width: 500px) {
-    padding-top: 66px;
+    padding-top: 85px;
   }
 }
 </style>

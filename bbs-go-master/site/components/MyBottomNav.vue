@@ -17,7 +17,7 @@ export default {}
   bottom: 0px;
   left: 0px;
   right: 0px;
-  z-index: 30px;
+  z-index: 30;
 }
 /* 底部导航栏只在屏幕宽度小于500px时候显示出来 */
 @media screen and (min-width: 500px) {

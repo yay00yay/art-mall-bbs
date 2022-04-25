@@ -24,7 +24,7 @@
           :class="{ 'is-active': activeDomain === 'meta' }"
           class="navbar-item"
         >
-          <nuxt-link :to="'/meta'">
+          <nuxt-link :to="'/meta/arts'">
             <span>星球</span>
           </nuxt-link>
         </li>

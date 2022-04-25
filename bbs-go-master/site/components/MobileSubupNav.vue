@@ -1,25 +1,37 @@
 <template>
   <div class="navbar">
     <div class="navbar-item">
-      <search-input />
+      <van-search v-model="searchQuery" placeholder="请输入搜索关键词" />
     </div>
     <!-- T:04200953 -->
     <div v-if="activeDomain === 'mall'" class="navbar-submenu">
-      <div class="navbar-sub-item"><span>首页</span></div>
-      <div class="navbar-sub-item"><span>最新</span></div>
+      <van-tabs v-model="activeName" @click="onClickSubMenu" class="navbar-submenu-tabs">
+        <van-tab title="首页" name="home"></van-tab>
+        <van-tab title="最新" name="newest"></van-tab>
+        <van-tab title="推荐" name="recommend"></van-tab>
+      </van-tabs>
     </div>
     <div v-if="activeDomain === 'community'" class="navbar-submenu">
-      <nuxt-link
+      <!-- <nuxt-link
         v-for="(nav, index) in config.siteNavs"
         :key="index"
         :to="nav.url"
         class="navbar-sub-item"
         >{{ nav.title }}</nuxt-link
-      >
+      > -->
+      <van-tabs v-model="activeName" @click="onClickSubMenu" class="navbar-submenu-tabs">
+        <van-tab title="首页" name="home"></van-tab>
+        <van-tab title="话题" name="topics"></van-tab>
+        <van-tab title="文章" name="articles"></van-tab>
+      </van-tabs>
     </div>
     <div v-if="activeDomain === 'meta'" class="navbar-submenu">
-      <div class="navbar-sub-item"><span>数字艺术</span></div>
-      <div class="navbar-sub-item"><span>数创空间</span></div>
+      <van-tabs v-model="activeName" @click="onClickSubMenu" class="navbar-submenu-tabs">
+        <van-tab title="数字艺术" name="arts"></van-tab>
+        <van-tab title="数创空间" name="spaces"></van-tab>
+      </van-tabs>
+      <!-- <div class="navbar-sub-item"><span>数字艺术</span></div>
+      <div class="navbar-sub-item"><span>数创空间</span></div> -->
     </div>
   </div>
 </template>
@@ -33,6 +45,7 @@ export default {
   data() {
     return {
       navbarActive: false,
+      searchQuery: ""
     }
   },
   computed: {
@@ -69,6 +82,12 @@ export default {
     },
     toggleNav() {
       this.navbarActive = !this.navbarActive
+    },
+    onClickSubMenu(name, title) {
+      const firstRoute = this.activeDomain === 'community' ? "" : '/' + this.activeDomain
+      const secondRoute = name === 'home' ? "" : "/" + name
+      const toPath = firstRoute + secondRoute;
+      this.$linkTo(toPath)
     },
   },
 }
@@ -110,6 +129,10 @@ export default {
     display: flex;
     padding: 0.5rem 0.75rem;
     justify-content: space-evenly;
+  }
+
+  .navbar-submenu-tabs {
+    width: -webkit-fill-available;
   }
 }
 </style>

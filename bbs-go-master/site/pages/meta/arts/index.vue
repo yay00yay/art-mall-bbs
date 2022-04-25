@@ -1,6 +1,6 @@
 <template>
   <section class="main">
-    <div>META</div>
+    <div>META Arts</div>
   </section>
 </template>
 

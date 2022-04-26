@@ -1,5 +1,5 @@
 <template>
-  <div class="mobile-nodes">
+  <div class="tablet-nodes">
     <transition name="fadeDown">
       <div v-show="show" class="nodes">
         <div class="nodes-row first">

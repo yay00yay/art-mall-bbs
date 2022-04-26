@@ -1,5 +1,5 @@
 <template>
-  <div class="mobile-sidebar">
+  <div class="tablet-sidebar">
     <transition name="fadeLeft">
       <div v-show="show" class="sidebar-container">
         <div v-if="siteNavs && siteNavs.length" class="sidebar-navs">

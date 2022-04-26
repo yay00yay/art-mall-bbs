@@ -1,8 +1,7 @@
 <template>
   <div>
-    <my-top-nav />
+    <my-nav />
     <nuxt />
-    <my-bottom-nav />
   </div>
 </template>
 

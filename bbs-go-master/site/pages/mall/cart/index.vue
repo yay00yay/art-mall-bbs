@@ -1,6 +1,6 @@
 <template>
   <section class="main">
-    <div>META</div>
+    Products In Cart.
   </section>
 </template>
 

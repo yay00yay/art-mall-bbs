@@ -47,6 +47,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '~/plugins/element-ui',
+    '~/plugins/vant',
     '~/plugins/filters',
     '~/plugins/axios',
     '~/plugins/bbs-go',

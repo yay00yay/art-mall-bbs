@@ -24,7 +24,7 @@
           :class="{ 'is-active': activeDomain === 'meta' }"
           class="navbar-item"
         >
-          <nuxt-link :to="'/meta'">
+          <nuxt-link :to="'/meta/arts'">
             <span>星球</span>
           </nuxt-link>
         </li>
@@ -41,7 +41,6 @@ const defaultDomain = 'community' // 1. community 2. mall 3. artwork
 export default {
   data() {
     return {
-      navbarActive: false,
     }
   },
   computed: {
@@ -76,9 +75,6 @@ export default {
         console.error(e)
       }
     },
-    toggleNav() {
-      this.navbarActive = !this.navbarActive
-    },
   },
 }
 </script>
@@ -88,13 +84,14 @@ export default {
   /*opacity: 0.99;*/
   /*border-bottom: 1px solid #e7edf3;*/
   background-color: var(--bg-color);
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 30;
 
   .navbar-item {
     font-weight: 700;
-  }
-
-  .navbar-sub-item {
-    margin: auto 1rem;
   }
 
   .nav-domain {
